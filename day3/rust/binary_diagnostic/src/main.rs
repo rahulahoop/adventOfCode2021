@@ -1,8 +1,5 @@
 use std::collections::HashMap;
 use std::fs;
-use std::fs::File;
-use std::io::Read;
-use std::str::Lines;
 
 static FILE_PATH: &str = "../../input.txt";
 
@@ -12,7 +9,7 @@ fn main() {
 }
 
 fn calculate_life_suppport_rating() {
-    let mut values : Vec<String> = fs::read_to_string(FILE_PATH)
+    let values : Vec<String> = fs::read_to_string(FILE_PATH)
         .expect("file not found!")
         .lines()
         .map(|x| x.to_string())
@@ -24,7 +21,7 @@ fn calculate_life_suppport_rating() {
     let oxygen_value = isize::from_str_radix(oxygen_value_bin.as_ref(), 2, ).unwrap() as i32;
     let co2_value = isize::from_str_radix(co2_value_bin.as_ref(), 2, ).unwrap() as i32;
     println!("{}, {}", oxygen_value_bin, co2_value_bin);
-    println!("o2 {} co2 {} v: {}",oxygen_value, co2_value, oxygen_value * co2_value);
+    println!("PART 2: o2 {} co2 {} v: {}",oxygen_value, co2_value, oxygen_value * co2_value);
 }
 
 fn calculate_carbon_dioxide(mut values: Vec<String>) -> String {
